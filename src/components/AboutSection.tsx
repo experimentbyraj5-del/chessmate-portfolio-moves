@@ -12,8 +12,8 @@ export const AboutSection = () => {
             <div className="w-24 h-1 bg-gradient-gold mx-auto rounded-full"></div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
+          <div className="flex flex-col md:flex-row gap-12 items-center">
+            <div className="flex-1 space-y-6">
               <p className="text-lg leading-relaxed text-muted-foreground">
                 Like a grandmaster studying the board, I approach every project with strategic thinking 
                 and calculated precision. My expertise lies at the intersection of artificial intelligence 
@@ -38,14 +38,12 @@ export const AboutSection = () => {
               </div>
             </div>
 
-            <div className="relative">
-              <div className="rounded-xl overflow-hidden shadow-chess">
-                <img 
-                  src="/src/assets/me.png" 
-                  alt="Priyanshu Rajpoot" 
-                  className="w-full h-80 object-cover object-center"
-                />
-              </div>
+            <div className="flex-shrink-0">
+              <img 
+                src="/src/assets/me.png" 
+                alt="Priyanshu Rajpoot" 
+                className="w-80 h-80 object-cover object-center rounded-xl shadow-chess"
+              />
             </div>
           </div>
         </div>

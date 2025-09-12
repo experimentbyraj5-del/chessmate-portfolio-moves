@@ -136,11 +136,17 @@ All colors MUST be HSL.
 @layer components {
   /* Chess piece animations */
   .chess-piece {
-    @apply transition-all duration-500 ease-out hover:scale-110 hover:drop-shadow-lg cursor-pointer;
+    @apply transition-all duration-500 ease-out hover:scale-110 cursor-pointer;
+    text-shadow: 
+      -1px -1px 0 #000,
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+      1px 1px 0 #000;
+    filter: drop-shadow(0 4px 8px hsl(0 0% 0% / 0.4));
   }
 
   .chess-piece:hover {
-    filter: drop-shadow(0 10px 20px hsl(0 0% 0% / 0.3));
+    filter: drop-shadow(0 10px 20px hsl(0 0% 0% / 0.5));
   }
 
   /* Chessboard pattern */

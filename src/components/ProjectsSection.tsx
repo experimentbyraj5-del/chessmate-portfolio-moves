@@ -81,57 +81,54 @@ export const ProjectsSection = () => {
           {projects.map((project) => (
             <Card
               key={project.id}
-              className="portfolio-card cursor-pointer group"
+              className="relative cursor-pointer group min-h-[200px] border-0 bg-transparent"
               onMouseEnter={() => setHoveredProject(project.id)}
               onMouseLeave={() => setHoveredProject(null)}
             >
-              <CardContent className="p-6">
+              <CardContent className="p-6 relative h-full">
                 <div className="text-center mb-4">
-                  <div className="relative mb-4">
-                    <img 
-                      src={project.logo} 
-                      alt={project.title} 
-                      className={`
-                        w-16 h-16 mx-auto object-contain transition-transform duration-500
-                        ${hoveredProject === project.id ? 'scale-125' : ''}
-                      `}
-                    />
-                    <div className={`
-                      absolute -top-2 -right-2 text-2xl transition-transform duration-500
-                      ${hoveredProject === project.id ? 'scale-125 animate-pulse' : ''}
-                    `}>
-                      {project.piece}
-                    </div>
-                  </div>
-                  
-                  <Badge variant="outline" className="mb-2">
+                  <img 
+                    src={project.logo} 
+                    alt={project.title} 
+                    className={`
+                      w-16 h-16 mx-auto object-contain transition-all duration-500
+                      ${hoveredProject === project.id ? 'opacity-0 scale-75' : 'opacity-100 scale-100'}
+                    `}
+                  />
+                </div>
+
+
+                <div className={`
+                  absolute inset-0 flex flex-col justify-center items-center p-6 transition-all duration-500
+                  ${hoveredProject === project.id ? 'opacity-100' : 'opacity-0'}
+                `}>
+                  <Badge variant="outline" className="mb-3">
                     {project.category}
                   </Badge>
-                </div>
-
-                <h3 className="text-xl font-serif font-semibold mb-3 text-center">
-                  {project.title}
-                </h3>
-
-                <div className={`
-                  transition-all duration-300 overflow-hidden
-                  ${hoveredProject === project.id ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}
-                `}>
-                  <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
-                    {project.description}
-                  </p>
                   
-                  <div className="flex flex-wrap gap-1">
-                    {project.tech.map((tech) => (
-                      <Badge key={tech} variant="secondary" className="text-xs">
-                        {tech}
-                      </Badge>
-                    ))}
+                  <h3 className="text-xl font-serif font-semibold mb-3 text-center">
+                    {project.title}
+                  </h3>
+                  
+                  <div className={`
+                    ${hoveredProject === project.id ? 'animate-fade-in' : ''}
+                  `}>
+                    <p className="text-sm text-muted-foreground mb-4 leading-relaxed text-center">
+                      {project.description}
+                    </p>
+                    
+                    <div className="flex flex-wrap gap-1 justify-center">
+                      {project.tech.map((tech) => (
+                        <Badge key={tech} variant="secondary" className="text-xs">
+                          {tech}
+                        </Badge>
+                      ))}
+                    </div>
                   </div>
                 </div>
 
                 <div className={`
-                  mt-4 text-center transition-all duration-300
+                  absolute bottom-4 left-0 right-0 text-center transition-all duration-300
                   ${hoveredProject === project.id ? 'opacity-0' : 'opacity-100'}
                 `}>
                   <p className="text-sm text-muted-foreground">
