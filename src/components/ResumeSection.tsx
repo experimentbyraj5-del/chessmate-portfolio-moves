@@ -1,0 +1,72 @@
+import { Button } from "@/components/ui/button";
+import { Download } from "lucide-react";
+
+export const ResumeSection = () => {
+  const handleResumeDownload = () => {
+    // In a real implementation, this would download the actual resume PDF
+    // For now, we'll just show a toast notification
+    alert("Resume download would start here! 🎉");
+  };
+
+  return (
+    <section className="py-20 bg-gradient-chess text-white relative overflow-hidden">
+      {/* Background chess pieces */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-16 left-16 text-9xl">♟</div>
+        <div className="absolute top-32 right-32 text-7xl animate-pulse">♕</div>
+        <div className="absolute bottom-16 left-1/3 text-6xl">♟</div>
+        <div className="absolute bottom-32 right-16 text-8xl">♟</div>
+      </div>
+
+      <div className="container mx-auto px-6 text-center relative z-10">
+        <div className="max-w-2xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6">
+            Ready for the Next Move?
+          </h2>
+          
+          <p className="text-xl mb-8 opacity-90 leading-relaxed">
+            Like a pawn reaching the eighth rank, it's time to promote to the next level. 
+            Download my resume and let's discuss how we can create something extraordinary together.
+          </p>
+
+          <div className="flex flex-col items-center gap-6">
+            <Button 
+              onClick={handleResumeDownload}
+              className="pawn-promotion text-lg px-12 py-6 group"
+            >
+              <Download className="mr-3 h-5 w-5 group-hover:animate-bounce" />
+              Promote to Resume
+            </Button>
+
+            <div className="flex items-center gap-4 text-sm opacity-75">
+              <span>♟ → ♕</span>
+              <span>Pawn to Queen</span>
+              <span>•</span>
+              <span>Evolution in Action</span>
+            </div>
+          </div>
+
+          <div className="mt-12 p-6 bg-white/10 backdrop-blur rounded-xl border border-white/20">
+            <h3 className="text-xl font-serif font-semibold mb-4">
+              What You'll Find Inside
+            </h3>
+            <div className="grid md:grid-cols-3 gap-4 text-sm">
+              <div className="flex items-center gap-2">
+                <span className="text-accent text-lg">♖</span>
+                <span>Robust Experience</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-accent text-lg">♗</span>
+                <span>Strategic Skills</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-accent text-lg">♘</span>
+                <span>Creative Projects</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
