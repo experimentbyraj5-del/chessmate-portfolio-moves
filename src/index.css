@@ -32,9 +32,9 @@ All colors MUST be HSL.
     --accent: 43 96% 56%;
     --accent-foreground: 0 0% 8%;
 
-    /* Chess board squares */
-    --chess-light: 0 0% 94%;
-    --chess-dark: 0 0% 85%;
+    /* Chess board squares - high contrast */
+    --chess-light: 0 0% 98%;
+    --chess-dark: 0 0% 25%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;

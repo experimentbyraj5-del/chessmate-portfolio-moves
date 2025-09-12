@@ -35,6 +35,10 @@ export const HeroSection = () => {
               LinkedIn
             </Button>
             <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10">
+              <span className="mr-2 text-lg">♕</span>
+              Chess Profile
+            </Button>
+            <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10">
               <Mail className="mr-2 h-5 w-5" />
               Contact
             </Button>

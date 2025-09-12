@@ -2,42 +2,62 @@ import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
+import giflyLogo from "@/assets/gifly.png";
+import inboxGuardLogo from "@/assets/inbox-guard.png";
+import xorifyLogo from "@/assets/xorify.png";
+import chatCasterLogo from "@/assets/chat-caster.png";
+import knightVisionLogo from "@/assets/knight-vision.png";
+
 const projects = [
   {
     id: 1,
-    title: "AI Chess Engine",
-    description: "Deep learning chess AI with advanced position evaluation and strategic planning capabilities.",
+    title: "Gifly",
+    description: "AI-powered GIF generator with advanced customization and real-time rendering capabilities.",
+    logo: giflyLogo,
     piece: "♕", // Queen - versatility
-    category: "Versatility",
-    tech: ["Python", "TensorFlow", "Chess.js"],
+    category: "AI Generation",
+    tech: ["React", "TensorFlow", "WebGL"],
     status: "completed"
   },
   {
     id: 2,
-    title: "NLP Sentiment Analyzer",
-    description: "Natural language processing system for real-time sentiment analysis with chess-like strategic decision making.",
-    piece: "♗", // Bishop - algorithms  
-    category: "Algorithms",
-    tech: ["Python", "NLTK", "Transformers"],
-    status: "in-progress"
+    title: "Inbox Guard",
+    description: "Advanced email security system with ML-powered threat detection and automated response protocols.",
+    logo: inboxGuardLogo,
+    piece: "♖", // Rook - backend protection
+    category: "Security",
+    tech: ["Python", "Machine Learning", "Email APIs"],
+    status: "completed"
   },
   {
     id: 3,
-    title: "Backend Chess Platform",
-    description: "Scalable backend infrastructure supporting thousands of concurrent chess matches with real-time updates.",
-    piece: "♖", // Rook - backend
-    category: "Backend",
-    tech: ["Node.js", "Socket.io", "MongoDB"],
+    title: "Xorify",
+    description: "Cross-platform data encryption and secure communication tool with end-to-end encryption.",
+    logo: xorifyLogo,
+    piece: "♗", // Bishop - algorithms
+    category: "Cryptography", 
+    tech: ["Node.js", "Cryptography", "Socket.io"],
     status: "completed"
   },
   {
     id: 4,
-    title: "Creative Chess Visualizer",
-    description: "Interactive data visualization tool that transforms chess games into beautiful, artistic representations.",
+    title: "Chat Caster",
+    description: "Real-time broadcasting platform with intelligent chat moderation and analytics dashboard.",
+    logo: chatCasterLogo,
     piece: "♘", // Knight - creativity
-    category: "Creativity", 
-    tech: ["React", "D3.js", "WebGL"],
-    status: "concept"
+    category: "Communication",
+    tech: ["React", "WebRTC", "Redis"],
+    status: "in-progress"
+  },
+  {
+    id: 5,
+    title: "Knight Vision",
+    description: "AI Chess Assistant with computer vision for board analysis and strategic move recommendations.",
+    logo: knightVisionLogo,
+    piece: "♞", // Knight - AI chess
+    category: "AI Chess",
+    tech: ["Python", "Computer Vision", "Chess Engine"],
+    status: "completed"
   }
 ];
 
@@ -57,7 +77,7 @@ export const ProjectsSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project) => (
             <Card
               key={project.id}
@@ -67,11 +87,21 @@ export const ProjectsSection = () => {
             >
               <CardContent className="p-6">
                 <div className="text-center mb-4">
-                  <div className={`
-                    text-6xl mb-4 transition-transform duration-500 
-                    ${hoveredProject === project.id ? 'scale-125 animate-pulse' : ''}
-                  `}>
-                    {project.piece}
+                  <div className="relative mb-4">
+                    <img 
+                      src={project.logo} 
+                      alt={project.title} 
+                      className={`
+                        w-16 h-16 mx-auto object-contain transition-transform duration-500
+                        ${hoveredProject === project.id ? 'scale-125' : ''}
+                      `}
+                    />
+                    <div className={`
+                      absolute -top-2 -right-2 text-2xl transition-transform duration-500
+                      ${hoveredProject === project.id ? 'scale-125 animate-pulse' : ''}
+                    `}>
+                      {project.piece}
+                    </div>
                   </div>
                   
                   <Badge variant="outline" className="mb-2">

@@ -99,7 +99,7 @@ export const TechStackSection = () => {
                     className={`
                       w-12 h-12 flex items-center justify-center text-xl cursor-pointer
                       transition-colors duration-200
-                      ${isLight ? 'bg-chess-light hover:bg-accent/20' : 'bg-chess-dark hover:bg-accent/20'}
+                      ${isLight ? 'bg-chess-light hover:bg-accent/20' : 'bg-chess-dark text-white hover:bg-accent/20'}
                     `}
                   >
                     {piece}

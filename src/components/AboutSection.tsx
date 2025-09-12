@@ -39,16 +39,12 @@ export const AboutSection = () => {
             </div>
 
             <div className="relative">
-              {/* Decorative chessboard pattern */}
-              <div className="chessboard-pattern rounded-xl p-8 shadow-chess">
-                <div className="bg-white/90 backdrop-blur rounded-lg p-6 text-center">
-                  <div className="text-4xl mb-4">🎯</div>
-                  <h3 className="text-xl font-serif font-semibold mb-2">My Philosophy</h3>
-                  <p className="text-sm text-muted-foreground">
-                    "In chess, as in AI, the beauty lies not in the complexity of the solution, 
-                    but in the elegance of the strategy."
-                  </p>
-                </div>
+              <div className="rounded-xl overflow-hidden shadow-chess">
+                <img 
+                  src="/src/assets/me.png" 
+                  alt="Priyanshu Rajpoot" 
+                  className="w-full h-80 object-cover object-center"
+                />
               </div>
             </div>
           </div>

@@ -25,18 +25,22 @@ export const ResumeSection = () => {
           </h2>
           
           <p className="text-xl mb-8 opacity-90 leading-relaxed">
-            Like a pawn reaching the eighth rank, it's time to promote to the next level. 
-            Download my resume and let's discuss how we can create something extraordinary together.
+            Feel interested to add my resume to hire me select the pawn.
           </p>
 
           <div className="flex flex-col items-center gap-6">
-            <Button 
+            <div 
               onClick={handleResumeDownload}
-              className="pawn-promotion text-lg px-12 py-6 group"
+              className="cursor-pointer group flex flex-col items-center gap-4"
             >
-              <Download className="mr-3 h-5 w-5 group-hover:animate-bounce" />
-              Promote to Resume
-            </Button>
+              <div className="text-6xl transition-all duration-700 group-hover:scale-125">
+                <span className="group-hover:hidden">♟</span>
+                <span className="hidden group-hover:inline animate-pulse">♕</span>
+              </div>
+              <span className="text-lg font-semibold opacity-75 group-hover:opacity-100 transition-opacity">
+                Click to Download Resume
+              </span>
+            </div>
 
             <div className="flex items-center gap-4 text-sm opacity-75">
               <span>♟ → ♕</span>
