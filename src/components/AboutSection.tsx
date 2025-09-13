@@ -1,8 +1,10 @@
+import meImage from "@/assets/me.png";
+
 export const AboutSection = () => {
   return (
     <section className="py-20 bg-background">
       <div className="container mx-auto px-6">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           {/* Section header with chess knight */}
           <div className="text-center mb-16 relative">
             <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 text-6xl opacity-10">♞</div>
@@ -40,9 +42,9 @@ export const AboutSection = () => {
 
             <div className="flex-shrink-0">
               <img 
-                src="/src/assets/me.png" 
+                src={meImage} 
                 alt="Priyanshu Rajpoot" 
-                className="w-80 h-80 object-cover object-center rounded-xl shadow-chess"
+                className="w-96 h-96 object-cover object-center rounded-xl shadow-chess"
               />
             </div>
           </div>

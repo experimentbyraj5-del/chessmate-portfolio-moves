@@ -81,7 +81,7 @@ export const ProjectsSection = () => {
           {projects.map((project) => (
             <Card
               key={project.id}
-              className="relative cursor-pointer group min-h-[200px] border-0 bg-transparent"
+              className="relative cursor-pointer group min-h-[300px] border-0 bg-transparent"
               onMouseEnter={() => setHoveredProject(project.id)}
               onMouseLeave={() => setHoveredProject(null)}
             >

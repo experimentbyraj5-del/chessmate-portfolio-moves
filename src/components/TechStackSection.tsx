@@ -1,20 +1,22 @@
 const techStack = [
-  { name: "React", icon: "⚛️" },
-  { name: "TypeScript", icon: "📘" },
   { name: "Python", icon: "🐍" },
-  { name: "Node.js", icon: "🟢" },
-  { name: "TensorFlow", icon: "🧠" },
-  { name: "MongoDB", icon: "🍃" },
-  { name: "PostgreSQL", icon: "🐘" },
-  { name: "Docker", icon: "🐳" },
-  { name: "AWS", icon: "☁️" },
-  { name: "Git", icon: "📚" },
-  { name: "Linux", icon: "🐧" },
-  { name: "GraphQL", icon: "📊" },
-  { name: "Redis", icon: "🔴" },
-  { name: "Kubernetes", icon: "⚓" },
-  { name: "FastAPI", icon: "⚡" },
-  { name: "Next.js", icon: "▲" }
+  { name: "Streamlit", icon: "🚀" },
+  { name: "PyQt5", icon: "🖥️" },
+  { name: "Threading", icon: "⚡" },
+  { name: "JavaScript", icon: "📜" },
+  { name: "ES6", icon: "🔄" },
+  { name: "Chrome Ext", icon: "🌐" },
+  { name: "DOM", icon: "🔧" },
+  { name: "Hugging Face", icon: "🤗" },
+  { name: "Transformers", icon: "🔮" },
+  { name: "PyTorch", icon: "🔥" },
+  { name: "DistilBERT", icon: "🧠" },
+  { name: "Stockfish", icon: "♞" },
+  { name: "OpenCV", icon: "👁️" },
+  { name: "Tesseract", icon: "📖" },
+  { name: "CustomTkinter", icon: "🎨" },
+  { name: "HTML", icon: "📄" },
+  { name: "CSS", icon: "🎨" }
 ];
 
 export const TechStackSection = () => {
