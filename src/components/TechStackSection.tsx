@@ -73,46 +73,6 @@ export const TechStackSection = () => {
             ))}
           </div>
         </div>
-
-        {/* Mini chess puzzle */}
-        <div className="mt-16 max-w-md mx-auto">
-          <div className="bg-card rounded-xl p-6 shadow-chess border">
-            <h3 className="text-xl font-serif font-semibold mb-4 text-center">
-              Daily Challenge: Checkmate in 1
-            </h3>
-            
-            <div className="grid grid-cols-4 gap-1 mb-4">
-              {/* Simplified 4x4 puzzle */}
-              {[
-                '','','♚','',
-                '','♕','','',
-                '','','','',
-                '♔','','',''
-              ].map((piece, index) => {
-                const row = Math.floor(index / 4);
-                const col = index % 4;
-                const isLight = (row + col) % 2 === 0;
-                
-                return (
-                  <div
-                    key={index}
-                    className={`
-                      w-12 h-12 flex items-center justify-center text-xl cursor-pointer
-                      transition-colors duration-200
-                      ${isLight ? 'bg-chess-light hover:bg-accent/20' : 'bg-chess-dark text-white hover:bg-accent/20'}
-                    `}
-                  >
-                    {piece}
-                  </div>
-                );
-              })}
-            </div>
-            
-            <p className="text-sm text-muted-foreground text-center">
-              White to move and mate in one. Can you find it?
-            </p>
-          </div>
-        </div>
       </div>
     </section>
   );

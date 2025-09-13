@@ -86,12 +86,12 @@ export const ProjectsSection = () => {
               onMouseLeave={() => setHoveredProject(null)}
             >
               <CardContent className="p-6 relative h-full">
-                <div className="text-center mb-4">
+                <div className="absolute inset-0 flex items-center justify-center">
                   <img 
                     src={project.logo} 
                     alt={project.title} 
                     className={`
-                      w-16 h-16 mx-auto object-contain transition-all duration-500
+                      w-full h-full object-cover transition-all duration-500
                       ${hoveredProject === project.id ? 'opacity-0 scale-75' : 'opacity-100 scale-100'}
                     `}
                   />

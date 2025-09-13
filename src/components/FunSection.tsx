@@ -166,25 +166,25 @@ export const FunSection = () => {
                 )}
               </div>
 
-              <div className="grid grid-cols-8 gap-0 border-2 border-border rounded-lg overflow-hidden mb-6 max-w-md mx-auto">
+              <div className="grid grid-cols-8 gap-0 border-4 border-chess-border rounded-xl overflow-hidden mb-6 max-w-lg mx-auto shadow-chess">
                 {gameBoard.map((row, rowIndex) =>
                   row.map((piece, colIndex) => (
                     <div
                       key={`${rowIndex}-${colIndex}`}
                       className={`
-                        w-12 h-12 flex items-center justify-center text-xl cursor-pointer
-                        transition-all duration-200
+                        w-16 h-16 flex items-center justify-center text-2xl cursor-pointer
+                        transition-all duration-200 relative
                         ${isLightSquare(rowIndex, colIndex) ? 'bg-chess-light' : 'bg-chess-dark'}
-                        ${isSelected(rowIndex, colIndex) ? 'ring-2 ring-accent' : ''}
-                        hover:bg-accent/20
+                        ${isSelected(rowIndex, colIndex) ? 'ring-4 ring-accent ring-inset' : ''}
+                        hover:brightness-110
                       `}
                       onClick={() => handleSquareClick(rowIndex, colIndex)}
                     >
-                      <span className="chess-piece">
+                      <span className="chess-piece drop-shadow-lg text-shadow-chess select-none">
                         {piece}
                       </span>
                       {isSelected(rowIndex, colIndex) && (
-                        <div className="absolute inset-0 bg-accent/30" />
+                        <div className="absolute inset-0 bg-accent/30 rounded-sm" />
                       )}
                     </div>
                   ))
