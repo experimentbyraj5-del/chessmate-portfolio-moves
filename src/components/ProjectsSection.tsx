@@ -12,10 +12,10 @@ const projects = [
   {
     id: 1,
     title: "Gifly",
-    description: "AI-powered GIF generator with advanced customization and real-time rendering capabilities.",
+    description: "Gifly is a lightweight Chrome extension that transforms music playback into a fun, vibey experience. Users load local audio files to create playlists.",
     logo: giflyLogo,
-    category: "AI Generation",
-    tech: ["React", "TensorFlow", "WebGL"],
+    category: "Chrome Extension",
+    tech: ["Chrome Extension", "JavaScript", "HTML", "CSS"],
     status: "completed",
     theme: {
       primary: "hsl(280, 85%, 60%)",
@@ -26,10 +26,10 @@ const projects = [
   {
     id: 2,
     title: "Inbox Guard",
-    description: "Advanced email security system with ML-powered threat detection and automated response protocols.",
+    description: "A Chrome extension that analyzes email sentiment (positive, negative, neutral) in Gmail or pasted text using local AI (DistilBERT). No APIs needed, ensuring privacy. Click to scrape the current email or input manually. Fast, user-friendly popup with color-coded results. Install easily, runs offline after initial model load.",
     logo: inboxGuardLogo,
-    category: "Security",
-    tech: ["Python", "Machine Learning", "Email APIs"],
+    category: "AI Security",
+    tech: ["DistilBERT", "Transformers", "PyTorch", "Chrome Extension", "JavaScript"],
     status: "completed",
     theme: {
       primary: "hsl(220, 85%, 55%)",
@@ -40,10 +40,10 @@ const projects = [
   {
     id: 3,
     title: "Xorify",
-    description: "Cross-platform data encryption and secure communication tool with end-to-end encryption.",
+    description: "Xorify is a sleek encryption platform built on the XOR cipher, designed to make data security accessible and practical. With support for text and file encryption, QR code generation, and a user-friendly interface, Xorify bridges simplicity and professionalism.",
     logo: xorifyLogo,
     category: "Cryptography", 
-    tech: ["Node.js", "Cryptography", "Socket.io"],
+    tech: ["Python", "PyQt5", "CustomTkinter"],
     status: "completed",
     theme: {
       primary: "hsl(160, 85%, 45%)",
@@ -54,11 +54,11 @@ const projects = [
   {
     id: 4,
     title: "Chat Caster",
-    description: "Real-time broadcasting platform with intelligent chat moderation and analytics dashboard.",
+    description: "Chat_Caster is an AI-powered tool that transforms WhatsApp chat histories into realistic, interactive personas. By analyzing conversations, it trains lightweight GPT models to simulate natural dialogues, letting users relive, study, or extend chat experiences.",
     logo: chatCasterLogo,
-    category: "Communication",
-    tech: ["React", "WebRTC", "Redis"],
-    status: "in-progress",
+    category: "AI Communication",
+    tech: ["Transformers", "DistilBERT", "PyTorch", "Streamlit"],
+    status: "completed",
     theme: {
       primary: "hsl(30, 85%, 55%)",
       secondary: "hsl(30, 85%, 95%)",
@@ -68,10 +68,10 @@ const projects = [
   {
     id: 5,
     title: "Knight Vision",
-    description: "AI Chess Assistant with computer vision for board analysis and strategic move recommendations.",
+    description: "Project KnightVision is a real-time chess analysis tool that uses your camera to recognize a physical chessboard and provide AI-powered move suggestions. Built with OpenCV, Stockfish, and PyQt5, it detects the board, identifies pieces, generates FEN positions, and evaluates the best moves directly in a clean GUI.",
     logo: knightVisionLogo,
     category: "AI Chess",
-    tech: ["Python", "Computer Vision", "Chess Engine"],
+    tech: ["OpenCV", "Stockfish", "PyQt5", "Python"],
     status: "completed",
     theme: {
       primary: "hsl(45, 85%, 50%)",
