@@ -17,15 +17,14 @@ export const AboutSection = () => {
           <div className="flex flex-col md:flex-row gap-12 items-center">
             <div className="flex-1 space-y-6">
               <p className="text-lg leading-relaxed text-muted-foreground">
-                Like a grandmaster studying the board, I approach every project with strategic thinking 
-                and calculated precision. My expertise lies at the intersection of artificial intelligence 
-                and elegant software solutions.
+                I am a Python learner specializing in Artificial Intelligence, Natural Language Processing, 
+                and Machine Learning. My expertise includes prompt engineering, developing custom modules, 
+                and integrating them to build intelligent software solutions powered by GPT tools.
               </p>
               
               <p className="text-lg leading-relaxed text-muted-foreground">
-                Every line of code is a calculated move, every algorithm a strategic gambit. 
-                I believe in creating solutions that are not just functional, but intellectually 
-                beautiful—much like the perfect chess game.
+                I focus on creating scalable, efficient, and practical systems by combining strategic 
+                problem-solving with clean development practices.
               </p>
 
               <div className="flex items-center gap-4 pt-4">

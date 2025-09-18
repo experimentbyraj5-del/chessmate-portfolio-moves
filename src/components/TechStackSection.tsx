@@ -55,21 +55,6 @@ const techStack = [
     projects: ["Inbox Guard", "Gifly"]
   },
   { 
-    name: "Stockfish", 
-    logo: "https://stockfishchess.org/images/logo/icon_256x256.png",
-    projects: ["Knight Vision"]
-  },
-  { 
-    name: "Tesseract OCR", 
-    logo: "https://raw.githubusercontent.com/tesseract-ocr/tesseract/main/doc/tesseract_logo.png",
-    projects: ["Knight Vision"]
-  },
-  { 
-    name: "RegEx", 
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/regex/regex-original.svg",
-    projects: ["Chat Caster"]
-  },
-  { 
     name: "Threading", 
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
     projects: ["Knight Vision", "Chat Caster"]
@@ -129,8 +114,8 @@ export const TechStackSection = () => {
                   {/* Hover effect with project list */}
                   <div className="absolute inset-0 bg-accent/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   
-                  {/* Project tooltip */}
-                  <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 pointer-events-none">
+                  {/* Project tooltip - fixed positioning to avoid overlap */}
+                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-30 pointer-events-none">
                     <div className="bg-background border border-border rounded-lg px-3 py-2 shadow-lg min-w-max">
                       <p className="text-xs font-medium text-foreground mb-1">Used in:</p>
                       {tech.projects.map((project, idx) => (

@@ -117,7 +117,7 @@ export const ProjectsSection = () => {
             My Projects
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Each project showcases unique technical expertise and creative problem-solving approaches.
+            Each project is built using GPT tools and my applied learning, with the goal of addressing real-world problems through practical and innovative solutions.
           </p>
         </div>
 
