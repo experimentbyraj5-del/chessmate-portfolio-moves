@@ -7,6 +7,7 @@ import inboxGuardLogo from "@/assets/inbox-guard.png";
 import xorifyLogo from "@/assets/xorify.png";
 import chatCasterLogo from "@/assets/chat-caster.png";
 import knightVisionLogo from "@/assets/knight-vision.png";
+import ptextorLogo from "@/assets/ptextor.png";
 
 const projects = [
   {
@@ -77,6 +78,20 @@ const projects = [
       primary: "hsl(45, 85%, 50%)",
       secondary: "hsl(45, 85%, 95%)",
       accent: "hsl(45, 85%, 70%)"
+    }
+  },
+  {
+    id: 6,
+    title: "PTEXTOR",
+    description: "PTEXTOR bridges plain text editing with web-based animations, making it suitable for creating dynamic content like interactive stories or presentations without requiring web development skills. The project emphasizes modularity, with separate modules for parsing, GUI, utilities, and file handling.",
+    logo: ptextorLogo,
+    category: "Desktop Software",
+    tech: ["Python", "PyQt5", "QWebEngine", "Winreg"],
+    status: "completed",
+    theme: {
+      primary: "hsl(210, 85%, 55%)",
+      secondary: "hsl(210, 85%, 95%)",
+      accent: "hsl(210, 85%, 75%)"
     }
   }
 ];
