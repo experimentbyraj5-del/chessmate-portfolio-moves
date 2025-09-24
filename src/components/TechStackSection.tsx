@@ -107,6 +107,7 @@ export const TechStackSection = () => {
                   className={`
                     tech-tile group relative cursor-pointer
                     ${isLight ? 'bg-chess-light' : 'bg-chess-dark'}
+                    ${hoveredTech === index ? 'z-[60]' : 'z-10'}
                   `}
                   title={tech.name}
                   onMouseEnter={() => setHoveredTech(index)}
