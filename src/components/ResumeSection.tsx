@@ -3,9 +3,12 @@ import { Download } from "lucide-react";
 
 export const ResumeSection = () => {
   const handleResumeDownload = () => {
-    // In a real implementation, this would download the actual resume PDF
-    // For now, we'll just show a toast notification
-    alert("Resume download would start here! 🎉");
+    const link = document.createElement('a');
+    link.href = '/Priyanshu_Rajpoot_Resume.pdf';
+    link.download = 'Priyanshu_Rajpoot_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
