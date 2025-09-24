@@ -125,18 +125,18 @@ export const ProjectsSection = () => {
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
 
   return (
-    <section className="py-20 bg-secondary/50">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6">
+    <section className="py-12 sm:py-20 bg-secondary/50">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold mb-4 sm:mb-6">
             My Projects
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
             Each project is built using GPT tools and my applied learning, with the goal of addressing real-world problems through practical and innovative solutions.
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto space-y-8">
+        <div className="max-w-4xl mx-auto space-y-6 sm:space-y-8">
           {projects.map((project) => (
             <Card
               key={project.id}
@@ -152,9 +152,9 @@ export const ProjectsSection = () => {
               onMouseEnter={() => setHoveredProject(project.id)}
               onMouseLeave={() => setHoveredProject(null)}
             >
-              <CardContent className="p-0 relative h-80">
+              <CardContent className="p-0 relative h-64 sm:h-80">
                 {/* Logo Container */}
-                <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
+                <div className="absolute inset-0 flex items-center justify-center overflow-hidden p-4 sm:p-0">
                   <img 
                     src={project.logo} 
                     alt={project.title} 
@@ -168,7 +168,7 @@ export const ProjectsSection = () => {
                 {/* Project Details Overlay */}
                 <div 
                   className={`
-                    absolute inset-0 flex flex-col justify-center items-center p-8 transition-all duration-700 ease-out
+                    absolute inset-0 flex flex-col justify-center items-center p-4 sm:p-8 transition-all duration-700 ease-out
                     ${hoveredProject === project.id ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
                   `}
                   style={{
@@ -189,7 +189,7 @@ export const ProjectsSection = () => {
                   </Badge>
                   
                   <h3 
-                    className="text-2xl font-serif font-bold mb-4 text-center"
+                    className="text-xl sm:text-2xl font-serif font-bold mb-3 sm:mb-4 text-center"
                     style={{ color: hoveredProject === project.id ? project.theme.primary : undefined }}
                   >
                     <TypewriterText text={project.title} isVisible={hoveredProject === project.id} />
@@ -199,11 +199,11 @@ export const ProjectsSection = () => {
                     transition-all duration-500 delay-300
                     ${hoveredProject === project.id ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}
                   `}>
-                    <p className="text-sm text-muted-foreground mb-6 leading-relaxed text-center max-w-md">
+                    <p className="text-xs sm:text-sm text-muted-foreground mb-4 sm:mb-6 leading-relaxed text-center max-w-md px-2">
                       <TypewriterText text={project.description} isVisible={hoveredProject === project.id} />
                     </p>
                     
-                    <div className="flex flex-wrap gap-2 justify-center">
+                    <div className="flex flex-wrap gap-1.5 sm:gap-2 justify-center">
                       {project.tech.map((tech, index) => (
                         <Badge 
                           key={tech} 
@@ -227,10 +227,10 @@ export const ProjectsSection = () => {
 
                 {/* Hover Instruction */}
                 <div className={`
-                  absolute bottom-6 left-0 right-0 text-center transition-all duration-300
+                  absolute bottom-4 sm:bottom-6 left-0 right-0 text-center transition-all duration-300
                   ${hoveredProject === project.id ? 'opacity-0 -translate-y-2' : 'opacity-60 translate-y-0'}
                 `}>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-xs sm:text-sm text-muted-foreground px-4">
                     Hover to explore project details
                   </p>
                 </div>

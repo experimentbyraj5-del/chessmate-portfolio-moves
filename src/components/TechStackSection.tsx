@@ -81,13 +81,13 @@ const techStack = [
 export const TechStackSection = () => {
   const [hoveredTech, setHoveredTech] = useState<number | null>(null);
   return (
-    <section className="py-20 bg-background">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6">
+    <section className="py-12 sm:py-20 bg-background">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold mb-4 sm:mb-6">
             Tech Arsenal
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
             Like pieces on a chessboard, each technology serves a strategic purpose 
             in crafting the perfect solution.
           </p>
@@ -95,7 +95,7 @@ export const TechStackSection = () => {
 
         <div className="max-w-6xl mx-auto">
           {/* Chessboard-style grid */}
-          <div className="grid grid-cols-4 md:grid-cols-8 gap-2 p-4 bg-white rounded-xl shadow-chess border">
+          <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-1 sm:gap-2 p-2 sm:p-4 bg-white rounded-xl shadow-chess border">
             {techStack.map((tech, index) => {
               const row = Math.floor(index / 8);
               const col = index % 8;
@@ -113,8 +113,8 @@ export const TechStackSection = () => {
                   onMouseEnter={() => setHoveredTech(index)}
                   onMouseLeave={() => setHoveredTech(null)}
                 >
-                  <div className="flex flex-col items-center gap-2 relative z-10">
-                    <div className="w-8 h-8 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <div className="flex flex-col items-center gap-1 sm:gap-2 relative z-10 p-2 sm:p-3">
+                    <div className="w-6 h-6 sm:w-8 sm:h-8 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                       <img 
                         src={tech.logo} 
                         alt={tech.name}
@@ -122,7 +122,7 @@ export const TechStackSection = () => {
                         style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))' }}
                       />
                     </div>
-                    <span className="text-xs font-medium text-center leading-tight opacity-75 group-hover:opacity-100 transition-opacity">
+                    <span className="text-xs font-medium text-center leading-tight opacity-75 group-hover:opacity-100 transition-opacity hidden sm:block">
                       {tech.name}
                     </span>
                   </div>
@@ -132,9 +132,10 @@ export const TechStackSection = () => {
                   
                   {/* Project tooltip - fixed positioning to avoid overlap */}
                   {hoveredTech === index && tech.projects.length > 0 && (
-                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 z-50 pointer-events-none">
-                      <div className="bg-gray-900/95 backdrop-blur-sm border border-white/10 rounded-lg px-3 py-2 shadow-lg min-w-max max-w-xs">
-                        <p className="text-xs font-medium text-white mb-1">Used in:</p>
+                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 sm:mt-2 z-50 pointer-events-none">
+                      <div className="bg-gray-900/95 backdrop-blur-sm border border-white/10 rounded-lg px-2 sm:px-3 py-1.5 sm:py-2 shadow-lg min-w-max max-w-xs">
+                        <p className="text-xs font-medium text-white mb-1 hidden sm:block">Used in:</p>
+                        <p className="text-xs font-medium text-white mb-1 sm:hidden">{tech.name}:</p>
                         <ul className="text-xs text-white/80 space-y-0.5">
                           {tech.projects.map((project, idx) => (
                             <li key={idx}>• {project}</li>
@@ -149,9 +150,9 @@ export const TechStackSection = () => {
           </div>
 
           {/* Chess coordinates */}
-          <div className="flex justify-between mt-4 px-4">
+          <div className="justify-between mt-2 sm:mt-4 px-2 sm:px-4 hidden md:flex">
             {['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'].map(letter => (
-              <div key={letter} className="w-12 text-center text-sm font-semibold text-muted-foreground">
+              <div key={letter} className="w-8 sm:w-12 text-center text-xs sm:text-sm font-semibold text-muted-foreground">
                 {letter}
               </div>
             ))}
