@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Knight3D } from "@/components/Knight3D";
+import { ChessBoard } from "@/components/ChessBoard";
 import { HeroSection } from "@/components/HeroSection";
 import { AboutSection } from "@/components/AboutSection";
 import { ProjectsSection } from "@/components/ProjectsSection";
@@ -15,7 +15,7 @@ const Index = () => {
   };
 
   if (!hasEnteredPortfolio) {
-    return <Knight3D onMove={handleChessMove} />;
+    return <ChessBoard onMove={handleChessMove} />;
   }
 
   return (
