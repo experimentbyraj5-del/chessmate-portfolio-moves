@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Text3D, Center, OrbitControls } from "@react-three/drei";
+import { Center, OrbitControls } from "@react-three/drei";
 import { Mesh } from "three";
 
 interface Knight3DProps {
@@ -9,14 +9,29 @@ interface Knight3DProps {
 
 const KnightMesh = ({ onRotate }: { onRotate: () => void }) => {
   const meshRef = useRef<Mesh>(null);
-  const [rotation, setRotation] = useState({ x: 0, y: 0, z: 0 });
   const [isRotating, setIsRotating] = useState(false);
+  const [targetRotation, setTargetRotation] = useState({ x: 0, y: 0, z: 0 });
+  const [currentRotation, setCurrentRotation] = useState({ x: 0, y: 0, z: 0 });
 
   useFrame((state, delta) => {
-    if (meshRef.current && !isRotating) {
-      // Gentle floating animation
-      meshRef.current.position.y = Math.sin(state.clock.elapsedTime * 0.5) * 0.1;
-      meshRef.current.rotation.y += delta * 0.1;
+    if (meshRef.current) {
+      if (!isRotating) {
+        // Gentle floating animation
+        meshRef.current.position.y = Math.sin(state.clock.elapsedTime * 0.5) * 0.1;
+        meshRef.current.rotation.y += delta * 0.1;
+      } else {
+        // Smooth rotation animation
+        const speed = 3;
+        setCurrentRotation(prev => ({
+          x: prev.x + (targetRotation.x - prev.x) * speed * delta,
+          y: prev.y + (targetRotation.y - prev.y) * speed * delta,
+          z: prev.z + (targetRotation.z - prev.z) * speed * delta,
+        }));
+        
+        if (meshRef.current) {
+          meshRef.current.rotation.set(currentRotation.x, currentRotation.y, currentRotation.z);
+        }
+      }
     }
   });
 
@@ -25,7 +40,7 @@ const KnightMesh = ({ onRotate }: { onRotate: () => void }) => {
       const timer = setTimeout(() => {
         setIsRotating(false);
         onRotate();
-      }, 1000);
+      }, 1500);
       return () => clearTimeout(timer);
     }
   }, [isRotating, onRotate]);
@@ -33,7 +48,7 @@ const KnightMesh = ({ onRotate }: { onRotate: () => void }) => {
   const handlePointerDown = () => {
     if (!isRotating) {
       setIsRotating(true);
-      setRotation(prev => ({
+      setTargetRotation(prev => ({
         x: prev.x + Math.PI * 2,
         y: prev.y + Math.PI * 2,
         z: prev.z + Math.PI
@@ -46,7 +61,6 @@ const KnightMesh = ({ onRotate }: { onRotate: () => void }) => {
       <mesh
         ref={meshRef}
         onPointerDown={handlePointerDown}
-        rotation={[rotation.x, rotation.y, rotation.z]}
         scale={2}
       >
         {/* Knight base */}
@@ -111,10 +125,12 @@ const KnightMesh = ({ onRotate }: { onRotate: () => void }) => {
 
 export const Knight3D = ({ onMove }: Knight3DProps) => {
   const [startTouch, setStartTouch] = useState<{ x: number; y: number } | null>(null);
+  const [isInteracting, setIsInteracting] = useState(false);
 
   const handleTouchStart = (e: React.TouchEvent) => {
     const touch = e.touches[0];
     setStartTouch({ x: touch.clientX, y: touch.clientY });
+    setIsInteracting(true);
   };
 
   const handleTouchEnd = (e: React.TouchEvent) => {
@@ -129,10 +145,19 @@ export const Knight3D = ({ onMove }: Knight3DProps) => {
       // Trigger rotation and transition
       setTimeout(() => {
         onMove();
-      }, 1200);
+      }, 1600);
     }
     
     setStartTouch(null);
+    setIsInteracting(false);
+  };
+
+  const handleMouseDown = () => {
+    setIsInteracting(true);
+  };
+
+  const handleMouseUp = () => {
+    setIsInteracting(false);
   };
 
   return (
@@ -140,6 +165,8 @@ export const Knight3D = ({ onMove }: Knight3DProps) => {
       className="min-h-screen flex flex-col items-center justify-center bg-gradient-chess text-white p-4 sm:p-8"
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
+      onMouseDown={handleMouseDown}
+      onMouseUp={handleMouseUp}
     >
       <div className="text-center mb-6 sm:mb-8 animate-fade-in px-4">
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-3 sm:mb-4 leading-tight">
@@ -150,7 +177,7 @@ export const Knight3D = ({ onMove }: Knight3DProps) => {
         </p>
       </div>
 
-      <div className="w-full max-w-lg h-96 sm:h-[500px] md:h-[600px]">
+      <div className="w-full max-w-lg h-96 sm:h-[500px] md:h-[600px] cursor-pointer">
         <Canvas
           camera={{ position: [0, 2, 5], fov: 50 }}
           style={{ background: 'transparent' }}
@@ -178,6 +205,7 @@ export const Knight3D = ({ onMove }: Knight3DProps) => {
             enableZoom={false}
             enablePan={false}
             autoRotate={false}
+            enabled={!isInteracting}
           />
         </Canvas>
       </div>
